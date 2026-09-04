@@ -1,4 +1,14 @@
 const symbols = ["7", "★", "♦", "♣", "♥", "☘", "🔔", "🍒"];
+const tripleWinMessages = {
+    "7": "Three sevens! WAIT WHA-",
+    "★": "3 stars!! You must be fan of Angry Birds.",
+    "♦": "DIAMONDS!DIAMONDS!DIAMONDS!DIAMONDS!",
+    "♣": "Welcome to the club, Buddy.",
+    "♥": "Love is in the air! 3 hearts i guess.",
+    "☘": "Overwhelming luck!",
+    "🔔": "¿Te gusta Taco Bell?",
+    "🍒": "LeroLeroLeroLeroLeroLeroLeroLeroLeroLeroLeroLeroLeroLero-"
+};
 
 function evaluateSpin(reels) {
     const [first, second, third] = reels;
@@ -6,7 +16,7 @@ function evaluateSpin(reels) {
     if (first === second && second === third) {
         return {
             result: "jackpot",
-            message: "Jackpot! Three matching symbols!"
+            message: tripleWinMessages[first] || "Jackpot! Three matching symbols!"
         };
     }
 
