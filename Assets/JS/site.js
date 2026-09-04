@@ -23,13 +23,13 @@ function evaluateSpin(reels) {
     if (first === second || first === third || second === third) {
         return {
             result: "small-win",
-            message: "Two of a kind! You win a small prize."
+            message: "Only 2 matching..99% quit before BIG!!!"
         };
     }
 
     return {
         result: "loss",
-        message: "No match. Try again!"
+        message: "NOTHING!!!!! LMAOOOOOOOOOOOOOOOO. Try again."
     };
 }
 

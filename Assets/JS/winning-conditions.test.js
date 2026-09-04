@@ -54,11 +54,11 @@ test('three cherries has its own jackpot message', () => {
 test('two matching symbols is a small win', () => {
   const result = evaluateSpin(['♥', '♥', '♣']);
   assert.equal(result.result, 'small-win');
-  assert.ok(result.message.includes('Two of a kind'));
+  assert.ok(result.message.includes('Only 2 matching..99% quit before BIG!!!'));
 });
 
 test('no match is a loss', () => {
   const result = evaluateSpin(['7', '♣', '♥']);
   assert.equal(result.result, 'loss');
-  assert.ok(result.message.includes('Try again'));
+  assert.ok(result.message.includes('NOTHING!!!!! LMAOOOOOOOOOOOOOOOO. Try again.'));
 });
