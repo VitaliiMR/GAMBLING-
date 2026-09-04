@@ -23,7 +23,7 @@ function evaluateSpin(reels) {
     if (first === second || first === third || second === third) {
         return {
             result: "small-win",
-            message: "Only 2 matching..99% quit before BIG!!!"
+            message: "Only 2 matching! 99% quit before BIG!!!"
         };
     }
 

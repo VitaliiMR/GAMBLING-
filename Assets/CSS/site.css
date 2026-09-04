@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One&family=DM+Mono:wght@400;500&display=swap');
+
+:root {
+	color-scheme: dark;
+	--ink: #fff8e7;
+	--muted: #c7bda9;
+	--red: #f04d3d;
+	--yellow: #ffd166;
+	--panel: #17151a;
+	--panel-light: #28232b;
+	--line: rgba(255, 248, 231, 0.16);
+}
