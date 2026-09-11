@@ -9,6 +9,18 @@ const tripleWinMessages = {
     "🔔": "¿Te gusta Taco Bell?",
     "🍒": "LeroLeroLeroLeroLeroLeroLeroLeroLeroLeroLeroLeroLeroLero-"
 };
+const resultImages = {
+    jackpot: {
+        "7": {
+            src: "Assets/foto jpg gif etc/WinPicGifs/BigOne.gif",
+            alt: "Big win celebration"
+        }
+    },
+    loss: {
+        src: "Assets/foto jpg gif etc/WinPicGifs/giphy.gif",
+        alt: "Losing result"
+    }
+};
 
 function evaluateSpin(reels) {
     const [first, second, third] = reels;
@@ -16,7 +28,8 @@ function evaluateSpin(reels) {
     if (first === second && second === third) {
         return {
             result: "jackpot",
-            message: tripleWinMessages[first] || "Jackpot! Three matching symbols!"
+            message: tripleWinMessages[first] || "Jackpot! Three matching symbols!",
+            image: resultImages.jackpot[first]
         };
     }
 
@@ -29,7 +42,8 @@ function evaluateSpin(reels) {
 
     return {
         result: "loss",
-        message: "House always wins! You lost btw, Lmao"
+        message: "House always wins! You lost btw, Lmao",
+        image: resultImages.loss
     };
 }
 
@@ -88,7 +102,16 @@ if (typeof document !== "undefined") {
 
             const finalSpin = reels.map((reel) => reel.textContent);
             const outcome = evaluateSpin(finalSpin);
-            result.textContent = outcome.message;
+            result.replaceChildren();
+            if (outcome.image) {
+                const image = document.createElement("img");
+                image.src = outcome.image.src;
+                image.alt = outcome.image.alt;
+                image.className = "result-image";
+                result.append(image);
+            } else {
+                result.textContent = outcome.message;
+            }
             result.classList.remove("jackpot", "small-win", "loss");
             result.classList.add(outcome.result);
 

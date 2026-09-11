@@ -92,6 +92,14 @@ p {
 	font-size: large;
 }
 
+.result-image {
+	display: block;
+	width: min(22rem, 90vw);
+	max-height: 14rem;
+	margin: 0 auto;
+	object-fit: contain;
+}
+
 .symbol-field {
 	display: flex;
 	gap: 0.75rem;
