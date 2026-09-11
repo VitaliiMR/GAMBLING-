@@ -11,8 +11,75 @@
 	--line: rgba(255, 248, 231, 0.16);
 }
 body {
+	position: relative;
+	min-height: 100vh;
+	overflow: hidden;
+	background:
+		radial-gradient(circle at 50% 20%, rgba(240, 77, 61, 0.12), transparent 42%),
+		#0d0c10;
+	font-family: 'DM Mono', monospace;
 	text-align: center;
-	margin: 10cap;
+	margin: 0;
+	padding: 10cap 1.5rem 2rem;
+}
+
+main {
+	position: relative;
+	z-index: 1;
+}
+
+.coin-rain {
+	position: fixed;
+	inset: 0;
+	z-index: 0;
+	overflow: hidden;
+	pointer-events: none;
+}
+
+.coin {
+	position: absolute;
+	top: -4rem;
+	left: var(--coin-left);
+	width: var(--coin-size);
+	aspect-ratio: 1;
+	border: 3px solid #c78d22;
+	border-radius: 50%;
+	background: radial-gradient(circle at 35% 30%, #fff1a8 0 10%, #ffd166 35%, #d99a20 72%, #8e5b0d 100%);
+	box-shadow: inset 0 0 0 2px rgba(255, 245, 174, 0.55), 0 0 14px rgba(255, 209, 102, 0.35);
+	opacity: 0.78;
+	animation: coin-fall var(--coin-duration) linear var(--coin-delay) infinite;
+}
+
+.coin::after {
+	content: '$';
+	position: absolute;
+	inset: 0;
+	display: grid;
+	place-items: center;
+	color: #a96e12;
+	font-family: Georgia, serif;
+	font-size: calc(var(--coin-size) * 0.5);
+	font-weight: 700;
+	text-shadow: 1px 1px 0 rgba(255, 244, 168, 0.6);
+}
+
+@keyframes coin-fall {
+	0% {
+		transform: translate3d(0, -8vh, 0) rotateY(0deg) rotate(0deg);
+	}
+	50% {
+		transform: translate3d(var(--coin-drift), 50vh, 0) rotateY(180deg) rotate(180deg);
+	}
+	100% {
+		transform: translate3d(calc(var(--coin-drift) * -0.7), 115vh, 0) rotateY(360deg) rotate(360deg);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.coin {
+		animation-play-state: paused;
+		opacity: 0.18;
+	}
 }
 
 h1 {

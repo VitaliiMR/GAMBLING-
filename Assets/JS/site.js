@@ -34,6 +34,21 @@ function evaluateSpin(reels) {
 }
 
 if (typeof document !== "undefined") {
+    const coinRain = document.createElement("div");
+    coinRain.className = "coin-rain";
+    coinRain.setAttribute("aria-hidden", "true");
+
+    for (let index = 0; index < 24; index += 1) {
+        const coin = document.createElement("span");
+        coin.className = "coin";
+        coin.style.setProperty("--coin-left", `${(index * 4.7) % 100}%`);
+        coin.style.setProperty("--coin-size", `${24 + (index % 4) * 8}px`);
+        coin.style.setProperty("--coin-delay", `${-((index * 0.73) % 7)}s`);
+        coin.style.setProperty("--coin-duration", `${6 + (index % 5) * 1.2}s`);
+        coin.style.setProperty("--coin-drift", `${-40 + (index % 6) * 16}px`);
+        coinRain.append(coin);
+    }
+
     const main = document.createElement("main");
     const heading = document.createElement("h1");
     heading.textContent = "LET'S GO GAMBLING";
@@ -83,7 +98,7 @@ if (typeof document !== "undefined") {
     });
 
     main.append(heading, field, result, button);
-    document.body.append(main);
+    document.body.append(coinRain, main);
 }
 
 if (typeof module !== "undefined") {
