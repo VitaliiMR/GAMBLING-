@@ -27,12 +27,6 @@ test('three clubs has its own jackpot message', () => {
   assert.equal(result.message, 'Welcome to the club, Buddy.');
 });
 
-test('three hearts has its own jackpot message', () => {
-  const result = evaluateSpin(['♥', '♥', '♥']);
-  assert.equal(result.result, 'jackpot');
-  assert.equal(result.message, 'Love is in the air! 3 hearts i guess.');
-});
-
 test('three clovers has its own jackpot message', () => {
   const result = evaluateSpin(['☘', '☘', '☘']);
   assert.equal(result.result, 'jackpot');

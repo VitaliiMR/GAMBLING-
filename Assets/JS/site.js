@@ -4,7 +4,6 @@ const tripleWinMessages = {
     "★": "3 stars!! You must be fan of Angry Birds.",
     "♦": "DIAMONDS!DIAMONDS!DIAMONDS!DIAMONDS!",
     "♣": "Welcome to the club, Buddy.",
-    "♥": "Love is in the air! 3 hearts i guess.",
     "☘": "Overwhelming luck!",
     "🔔": "¿Te gusta Taco Bell?",
     "🍒": "LeroLeroLeroLeroLeroLeroLeroLeroLeroLeroLeroLeroLeroLero-"
@@ -12,12 +11,18 @@ const tripleWinMessages = {
 const resultImages = {
     jackpot: {
         "7": {
-            src: "Assets/foto jpg gif etc/WinPicGifs/BigOne.gif",
+            src: "Assets/foto jpg gif etc/WinLosePicGifs/BigOne.gif",
+            alt: "Big win celebration"
+        }
+    },
+    jackpot: {
+        "★": {
+            src: "Assets/foto jpg gif etc/WinLosePicGifs/BigOne.gif",
             alt: "Big win celebration"
         }
     },
     loss: {
-        src: "Assets/foto jpg gif etc/WinPicGifs/giphy.gif",
+        src: "Assets/foto jpg gif etc/WinLosePicGifs/giphy.gif",
         alt: "Losing result"
     }
 };
